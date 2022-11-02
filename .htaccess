@@ -1,0 +1,83 @@
+RewriteEngine on
+AddDefaultCharset UTF-8
+
+ErrorDocument 404 /404.html
+php_flag display_errors On
+#показать все ошибки кроме предупреждений (Notice)
+php_value error_reporting "E_ALL & ~E_NOTICE"
+
+RewriteCond %{QUERY_STRING} "^do=static&page=old-name$"
+RewriteRule ^([^\/]+)$ new-link$1? [R=permanent,L]
+
+RewriteRule ^id([0-9a-zA-Z_-]+)$ profile.php?id=$1
+RewriteRule ^id([0-9a-zA-Z_-]+)/$ profile.php?id=$1*
+
+RewriteRule ^friends([0-9]+)$ friends.php?section=all&id=$1
+RewriteRule ^friends([0-9]+)/$ friends.php?section=all&id=$1*
+
+RewriteRule ^friends_online([0-9]+)$ friends.php?section=online&id=$1
+RewriteRule ^friends_online([0-9]+)/$ friends.php?section=online&id=$1*
+
+RewriteRule ^friends_requests([0-9]+)$ friends.php?section=requests&id=$1
+RewriteRule ^friends_requests([0-9]+)/$ friends.php?section=requests&id=$1*
+
+RewriteRule ^friends([0-9]+)$ friends.php?id=$1
+RewriteRule ^friends([0-9]+)/$ friends.php?id=$1*
+
+RewriteRule ^fav([0-9]+)$ fav.php?id=$1
+RewriteRule ^fav([0-9]+)/$ fav.php?id=$1*
+
+RewriteRule ^questions([0-9]+)$ questions.php?id=$1
+RewriteRule ^questions([0-9]+)/$ questions.php?id=$1*
+
+RewriteRule ^videos([0-9]+)$ videos.php?id=$1
+RewriteRule ^videos([0-9]+)/$ videos.php?id=$1*
+
+RewriteRule ^group([0-9]+)$ group.php?id=$1
+RewriteRule ^group([0-9]+)/$ group.php?id=$1*
+
+RewriteRule ^groups([0-9]+)$ groups.php?section=all&id=$1
+RewriteRule ^groups([0-9]+)/$ groups.php?section=all&id=$1*
+
+RewriteRule ^apps([0-9]+)$ apps.php?id=$1
+RewriteRule ^apps([0-9]+)/$ apps.php?id=$1*
+
+RewriteRule ^albums([0-9]+)$ albums.php?id=$1
+RewriteRule ^albums([0-9]+)/$ albums.php?id=$1*
+
+RewriteRule ^audios([0-9]+)$ audios.php?id=$1
+RewriteRule ^audios([0-9]+)/$ audios.php?id=$1*
+
+RewriteRule ^notes([0-9]+)$ notes.php?id=$1
+RewriteRule ^notes([0-9]+)/$ notes.php?id=$1*
+
+RewriteRule ^meets([0-9]+)$ meets.php?id=$1
+RewriteRule ^meets([0-9]+)/$ meets.php?id=$1*
+
+RewriteRule ^im([0-9]+)$ im.php?id=$1
+RewriteRule ^im([0-9]+)/$ im.php?id=$1*
+
+RewriteRule ^settings([0-9]+)$ settings.php?id=$1
+RewriteRule ^settings([0-9]+)/$ settings.php?id=$1*
+
+RewriteRule ^feed([0-9]+)$ feed.php?id=$1
+RewriteRule ^feed([0-9]+)/$ feed.php?id=$1*
+
+RewriteRule ^wall([0-9]+)$ wall.php?id=$1
+RewriteRule ^wall([0-9]+)/$ wall.php?id=$1*
+
+
+RewriteRule ^about$ about.php
+RewriteRule ^about/$ about.php
+
+RewriteRule ^blog blog.php
+RewriteRule ^blog/$ blog.php
+
+RewriteRule ^cond cond.php
+RewriteRule ^cond/$ cond.php
+
+RewriteRule ^tp tp.php
+RewriteRule ^tp/$ tp.php
+
+RewriteRule ^privacy privacy.php
+RewriteRule ^privacy/$ privacy.php
